@@ -1,13 +1,12 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.6;
-// use latest solidity version at time of writing, need not worry about overflow and underflow
 
 /// @title ERC20 Contract
 
 
-/// My Account = 0x5B38Da6a701c568545dCfcB03FcB875f56beddC4
-/// Account to Block = 0xDEE7796E89C82C36BAdd1375076f39D69FafE252 
-/// other account to Block = 0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2
+/// Test Account 1= 0x5B38Da6a701c568545dCfcB03FcB875f56beddC4
+/// Test Account 2 = 0xDEE7796E89C82C36BAdd1375076f39D69FafE252 
+/// Test Account 3 = 0xAb8483F64d9C6d1EcF9b849Ae677dD3315835cb2
 
 contract Token {
 
@@ -88,10 +87,11 @@ contract Token {
         emit Transfer(msg.sender, _to, _value);
     }
 
+    // Blocking an address
     function blockAddress(address _addressToBlock) public {
         blockedAddressDetails[msg.sender][_addressToBlock] = true;
     }
-
+    // Unblocking an address
     function unblockAddress(address _addressToBlock) public {
         blockedAddressDetails[msg.sender][_addressToBlock] = false;
     }
