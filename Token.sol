@@ -99,6 +99,7 @@ contract Token {
     //  It will make vested tokens available
     function makeAssetAvailable() isVestedTimeReached public returns(bool) {
         balanceOf[msg.sender].asset.isAvailable = true;
+        return true;
     }
 
 }
